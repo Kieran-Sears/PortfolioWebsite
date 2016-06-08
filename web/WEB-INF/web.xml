@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>databaseURL</param-name>
+        <param-value>jdbc:mysql://localhost:3306/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>databaseDriver</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>Servlet.DatabaseListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>FrontController</servlet-name>
+        <servlet-class>Servlet.FrontController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FrontController</servlet-name>
+        <url-pattern>/forms/*</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>Index.jsp</welcome-file>
+    </welcome-file-list>
+    <session-config>
+        <session-timeout>
+            20
+        </session-timeout>
+    </session-config>
+</web-app>
